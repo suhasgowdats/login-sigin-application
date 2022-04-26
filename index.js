@@ -7,7 +7,10 @@ const cors=require('cors')
 require("dotenv").config()
 const app=express();
 app.use(express.json())
-app.use(cors())
+var corsOptions = {
+    origin: '*',
+    credentials: true };
+app.use(cors(corsOptions))
 const PORT=process.env.PORT||500
 const {hashedPassword,pwsCompair}=require('./hashingpassword')
 
